@@ -34,13 +34,13 @@ namespace Controller
                     connect.TblTTNVCoBans.Add(instance);
                     connect.SaveChanges();
                     result.Success = true;
-                    result.message = "Thành công!";
+                    result.Message = "Thành công!";
                     result.Data = instance;
                 }
                 catch (Exception e)
                 {
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
                     result.Data = instance;
                 }
                 return result;
@@ -48,7 +48,7 @@ namespace Controller
             else
             {
                 result.Success = false;
-                result.message = "Đã tồn tại bản ghi";
+                result.Message = "Đã tồn tại bản ghi";
                 result.Data = instance;
                 return result;
             }
@@ -58,20 +58,20 @@ namespace Controller
             var a = AutoMapper.Mapper.Map<TblTTNVCoBan, NhanVienDTO>(instance);
             var result = new Result<TblTTNVCoBan>();
             var temp = connect.TblTTNVCoBans.Where(x => x.MaNV == instance.MaNV).FirstOrDefault();
-            if (temp != null)
+            if (temp == null)
             {
                 try
                 {
                     temp = instance;
                     connect.SaveChanges();
                     result.Success = true;
-                    result.message = "Thành công!";
+                    result.Message = "Thành công!";
                     result.Data = instance;
                 }
                 catch (Exception e)
                 {
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
                     result.Data = instance;
                 }
                 return result;
@@ -79,7 +79,7 @@ namespace Controller
             else
             {
                 result.Success = false;
-                result.message = "Không tìm thấy bản ghi";
+                result.Message = "Không tìm thấy bản ghi";
                 return result;
             }
         }
@@ -95,20 +95,20 @@ namespace Controller
                     connect.SaveChanges();
                     result.Success = true;
                     result.Data = temp;
-                    result.message = "Thành công!";
+                    result.Message = "Thành công!";
                 }
                 catch (Exception e)
                 {
                     result.Data = temp;
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
                 }
                 return result;
             }
             else
             {
                 result.Success = false;
-                result.message = "Không tìm thấy bản ghi";
+                result.Message = "Không tìm thấy bản ghi";
                 return result;
             }
         }
