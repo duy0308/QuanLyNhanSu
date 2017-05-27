@@ -52,11 +52,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add\AddBoPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddBoPhan.Designer.cs">
+      <DependentUpon>AddBoPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add\AddPhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add\AddPhongBan.Designer.cs">
+      <DependentUpon>AddPhongBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add\AddStaff.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Add\AddStaff.Designer.cs">
       <DependentUpon>AddStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DataGridViewButtonImage.cs" />
+    <Compile Include="Common\DataGridViewImageButtonSaveCell.cs" />
+    <Compile Include="Common\DataGridViewImageButtonDeleteCell.cs" />
+    <Compile Include="Delete\DeleteBoPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete\DeleteBoPhan.Designer.cs">
+      <DependentUpon>DeleteBoPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete\DeletePhongBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete\DeletePhongBan.Designer.cs">
+      <DependentUpon>DeletePhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperClass\SupperTabControl.cs">
       <SubType>Component</SubType>
@@ -90,8 +117,26 @@
     <Compile Include="Show\DanhSachNhanVien.Designer.cs">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Show\DanhSachPhongBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Show\DanhSachPhongBan.Designer.cs">
+      <DependentUpon>DanhSachPhongBan.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add\AddBoPhan.resx">
+      <DependentUpon>AddBoPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add\AddPhongBan.resx">
+      <DependentUpon>AddPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add\AddStaff.resx">
       <DependentUpon>AddStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete\DeleteBoPhan.resx">
+      <DependentUpon>DeleteBoPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Delete\DeletePhongBan.resx">
+      <DependentUpon>DeletePhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -114,7 +159,13 @@
     <EmbeddedResource Include="Show\DanhSachNhanVien.resx">
       <DependentUpon>DanhSachNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Show\DanhSachPhongBan.resx">
+      <DependentUpon>DanhSachPhongBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ConsoleApplication1.Entity.TblBoPhan.datasource" />
+    <None Include="Properties\DataSources\ConsoleApplication1.Entity.TblPhongBan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,6 +189,7 @@
       <Name>Controller</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -123,12 +123,14 @@
             this.DSPhongBanToolStrip.Name = "DSPhongBanToolStrip";
             this.DSPhongBanToolStrip.Size = new System.Drawing.Size(190, 22);
             this.DSPhongBanToolStrip.Text = "Danh sách phòng ban";
+            this.DSPhongBanToolStrip.Click += new System.EventHandler(this.DSPhongBanToolStrip_Click);
             // 
             // ThemPBToolStrip
             // 
             this.ThemPBToolStrip.Name = "ThemPBToolStrip";
             this.ThemPBToolStrip.Size = new System.Drawing.Size(190, 22);
             this.ThemPBToolStrip.Text = "Thêm";
+            this.ThemPBToolStrip.Click += new System.EventHandler(this.ThemPBToolStrip_Click);
             // 
             // SuaPBToolStrip
             // 
@@ -165,12 +167,14 @@
             this.thêmBoPhanToolStrip.Name = "thêmBoPhanToolStrip";
             this.thêmBoPhanToolStrip.Size = new System.Drawing.Size(176, 22);
             this.thêmBoPhanToolStrip.Text = "Thêm";
+            this.thêmBoPhanToolStrip.Click += new System.EventHandler(this.thêmBoPhanToolStrip_Click);
             // 
             // sửaBoPhanToolStrip
             // 
             this.sửaBoPhanToolStrip.Name = "sửaBoPhanToolStrip";
             this.sửaBoPhanToolStrip.Size = new System.Drawing.Size(176, 22);
             this.sửaBoPhanToolStrip.Text = "Sửa";
+            this.sửaBoPhanToolStrip.Click += new System.EventHandler(this.sửaBoPhanToolStrip_Click);
             // 
             // xóaBoPhanToolStrip
             // 

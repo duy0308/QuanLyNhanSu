@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ConsoleApplication1.Entity;
 using Controller.DTO;
 using AutoMapper;
+using System.Data.Entity;
 
 namespace Controller
 {
@@ -18,30 +19,35 @@ namespace Controller
         }
         public List<TblPhongBan> getAllPhongBan()
         {
-            
-
             List<TblPhongBan> result = new List<TblPhongBan>();
             result = connect.TblPhongBans.ToList();
             return result;
         }
+        public TblPhongBan getOnePhongBan(string maPB)
+        {
+            TblPhongBan result = new TblPhongBan();
+            result = connect.TblPhongBans.Where(x=> x.MaPhong == maPB).FirstOrDefault();
+            return result;
+        }
+
         public Result<TblPhongBan> addPhongBan(TblPhongBan instance)
         {
             var result = new Result<TblPhongBan>();
             var temp = connect.TblPhongBans.Where(x => x.MaPhong == instance.MaPhong).FirstOrDefault();
-            if(temp!=null)
+            if(temp==null)
             {
                 try
                 {
                     connect.TblPhongBans.Add(instance);
                     connect.SaveChanges();
                     result.Success = true;
-                    result.message = "Thành công!";
+                    result.Message = "Thành công!";
                     result.Data = instance;
                 }
                 catch (Exception e)
                 {
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
                     result.Data = instance;
                 }
                 return result;
@@ -49,7 +55,7 @@ namespace Controller
             else
             {
                 result.Success = false;
-                result.message = "Đã tồn tại bản ghi";
+                result.Message = "Đã tồn tại bản ghi";
                 result.Data = instance;
                 return result;
             }
@@ -64,15 +70,17 @@ namespace Controller
                 try
                 {
                     temp = instance;
+                    connect.TblPhongBans.Attach(temp);
+                    connect.Entry(temp).State = EntityState.Modified;
                     connect.SaveChanges();
                     result.Success = true;
-                    result.message = "Thành công!";
+                    result.Message = "Thành công!";
                     result.Data = instance;
                 }
                 catch (Exception e)
                 {
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
                     result.Data = instance;
                 }
                 return result;
@@ -80,7 +88,7 @@ namespace Controller
             else
             {
                 result.Success = false;
-                result.message = "Không tìm thấy bản ghi";
+                result.Message = "Không tìm thấy bản ghi";
                 return result;
             }
         }
@@ -88,28 +96,38 @@ namespace Controller
         {
             var result = new Result<TblPhongBan>();
             var temp = connect.TblPhongBans.Where(x => x.MaPhong == ma).FirstOrDefault();
+            var size = connect.TblTTNVCoBans.Where(x => x.MaPhong == ma).Count();
             if (temp != null)
             {
-                try
+                if (size == 0)
                 {
-                    connect.TblPhongBans.Remove(temp);
-                    connect.SaveChanges();
-                    result.Success = true;
-                    result.Data = temp;
-                    result.message = "Thành công!";
+                    try
+                    {
+                        connect.TblPhongBans.Remove(temp);
+                        connect.SaveChanges();
+                        result.Success = true;
+                        result.Data = temp;
+                        result.Message = "Thành công!";
+                    }
+                    catch (Exception e)
+                    {
+                        result.Data = temp;
+                        result.Success = false;
+                        result.Message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    }
                 }
-                catch (Exception e)
+                else
                 {
                     result.Data = temp;
                     result.Success = false;
-                    result.message = "Đã xảy ra lỗi khi thêm bản ghi! ";
+                    result.Message = "Tòn tại "+size+" nhân viên thuộc phòng này!";
                 }
                 return result;
             }
             else
             {
                 result.Success = false;
-                result.message = "Không tìm thấy bản ghi";
+                result.Message = "Không tìm thấy bản ghi";
                 return result;
             }
         }

@@ -1,4 +1,5 @@
-﻿using QLNS.HelperClass;
+﻿using ConsoleApplication1.Entity;
+using QLNS.HelperClass;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace QLNS.Main
 {
     public partial class frmMain : Form
     {
+        Show.DanhSachBoPhan dsbp;
+        Show.DanhSachPhongBan dspb;
+
         public frmMain()
         {
             InitializeComponent();
@@ -75,9 +79,33 @@ namespace QLNS.Main
 
         private void danhSáchBộPhậnTool_Click(object sender, EventArgs e)
         {
-            Show.DanhSachBoPhan uc = new Show.DanhSachBoPhan();
-            addNewTab("Danh sách bộ phận", uc);
+            dsbp = new Show.DanhSachBoPhan();
+            addNewTab("Danh sách bộ phận", dsbp);
+        }
 
+        private void thêmBoPhanToolStrip_Click(object sender, EventArgs e)
+        {
+            Add.AddBoPhan uc = new Add.AddBoPhan(null,"Thêm mới bộ phận",this.dsbp);
+            uc.ShowDialog();
+        }
+
+        private void sửaBoPhanToolStrip_Click(object sender, EventArgs e)
+        {
+            TblBoPhan data = new TblBoPhan();
+            Add.AddBoPhan uc = new Add.AddBoPhan(null, "Cập nhật bộ phận", this.dsbp);
+            uc.ShowDialog();
+        }
+
+        private void DSPhongBanToolStrip_Click(object sender, EventArgs e)
+        {
+            dspb = new Show.DanhSachPhongBan();
+            addNewTab("Danh sách bộ phận", dspb);
+        }
+
+        private void ThemPBToolStrip_Click(object sender, EventArgs e)
+        {
+            Add.AddPhongBan uc = new Add.AddPhongBan(null, "Thêm mới phòng ban", this.dspb);
+            uc.ShowDialog();
         }
     }
 }

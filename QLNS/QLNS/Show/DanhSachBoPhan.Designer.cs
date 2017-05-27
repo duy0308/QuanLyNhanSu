@@ -28,19 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.maBophanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenBoPhanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ghiChuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblBoPhanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblBoPhanBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maBophanDataGridViewTextBoxColumn,
+            this.tenBoPhanDataGridViewTextBoxColumn,
+            this.ghiChuDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tblBoPhanBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(744, 438);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // maBophanDataGridViewTextBoxColumn
+            // 
+            this.maBophanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maBophanDataGridViewTextBoxColumn.DataPropertyName = "MaBophan";
+            this.maBophanDataGridViewTextBoxColumn.HeaderText = "Mã bộ phận";
+            this.maBophanDataGridViewTextBoxColumn.Name = "maBophanDataGridViewTextBoxColumn";
+            this.maBophanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maBophanDataGridViewTextBoxColumn.Width = 87;
+            // 
+            // tenBoPhanDataGridViewTextBoxColumn
+            // 
+            this.tenBoPhanDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.tenBoPhanDataGridViewTextBoxColumn.DataPropertyName = "TenBoPhan";
+            this.tenBoPhanDataGridViewTextBoxColumn.HeaderText = "Tên bộ phận";
+            this.tenBoPhanDataGridViewTextBoxColumn.Name = "tenBoPhanDataGridViewTextBoxColumn";
+            this.tenBoPhanDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tenBoPhanDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // ghiChuDataGridViewTextBoxColumn
+            // 
+            this.ghiChuDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ghiChuDataGridViewTextBoxColumn.DataPropertyName = "GhiChu";
+            this.ghiChuDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
+            this.ghiChuDataGridViewTextBoxColumn.Name = "ghiChuDataGridViewTextBoxColumn";
+            this.ghiChuDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tblBoPhanBindingSource
+            // 
+            this.tblBoPhanBindingSource.DataSource = typeof(ConsoleApplication1.Entity.TblBoPhan);
             // 
             // DanhSachBoPhan
             // 
@@ -50,6 +95,7 @@
             this.Name = "DanhSachBoPhan";
             this.Size = new System.Drawing.Size(744, 438);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblBoPhanBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -57,5 +103,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource tblBoPhanBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maBophanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenBoPhanDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ghiChuDataGridViewTextBoxColumn;
     }
 }
