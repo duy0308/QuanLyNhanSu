@@ -10,6 +10,7 @@ namespace Controller
     {
         static void Main(string[] args)
         {
+            Console.Write(new BoPhanController().getAllBoPhan().Count() + "");
         }
     }
 }

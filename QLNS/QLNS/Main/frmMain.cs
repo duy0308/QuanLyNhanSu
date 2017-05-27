@@ -72,5 +72,12 @@ namespace QLNS.Main
             Them.DanhSachNhanVien uc = new Them.DanhSachNhanVien();
             addNewTab("Danh sách nhân viên", uc);
         }
+
+        private void danhSáchBộPhậnTool_Click(object sender, EventArgs e)
+        {
+            Show.DanhSachBoPhan uc = new Show.DanhSachBoPhan();
+            addNewTab("Danh sách bộ phận", uc);
+
+        }
     }
 }
